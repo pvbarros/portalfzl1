@@ -1,0 +1,103 @@
+<section class="container" id="noticias">
+ <!-- TITULO DA PAGINA -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Notícias <small>Publicações antigas</small></h2>
+                <hr>
+                <ol class="breadcrumb">
+                    <li><a href="/">Página Inicial</a>
+                    </li>
+                    <li class="active">Notícias</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- CORPO DAS NOTICIAS -->
+		<div class="row">
+			<div class="col-md-8 pesquisar-animado">
+
+                <a href="/noticias/new" class="btn btn-primary titulo-uppercase">
+                    <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir notícia</strong>
+                </a>
+
+                <p ng-show="mensagem.length" class="alert alert-info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+                </p> 
+                
+                <div dir-paginate="noticia in noticias | itemsPerPage:5 | filter: filtro">
+                    <h3 class="titulo-noticias titulo-capitalize">
+                        <a href="/noticia/post/{{noticia._id}}">{{noticia.titulo}}</a>
+                    </h3>
+                    <p><i class="fa fa-clock-o"></i> Postado em {{noticia.data | date:"dd/MM/yyyy 'às' HH:mm" }}</p>
+                    <hr>
+                    <a href="/noticia/post/{{noticia._id}}">
+                        <img class="img-responsive img-hover img-rounded img-post-noticias" src="{{noticia.url}}" alt="{{noticia.titulo}}">
+                    </a>
+                    <hr>
+                    <div class="conteudo-noticias">
+                        <p>{{noticia.conteudo}}</p>
+                    </div>
+
+                    <!-- BOTÕES -->
+                    <a class="btn btn-primary" href="/noticia/post/{{noticia._id}}">Leia Mais 
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                    <a href="noticias/edit/{{noticia._id}}" class="btn btn-warning titulo-uppercase">
+                        <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
+                    </a>
+
+                    <button class="btn btn-danger titulo-uppercase" data-toggle="modal" data-target="#confirm">
+                        <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
+                    </button>
+                    <div class="modal fade" id="confirm" role="dialog">
+                      <div class="modal-dialog modal-md">
+                    
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p>Deseja realmente excluir a notícia <strong class="titulo-capitalize"> {{noticia.titulo}}</strong>?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-click="remover(noticia)" class="btn btn-danger">Apagar</button>
+                                <button data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                            </div>
+                        </div>                        
+                      </div>
+                    </div>
+
+                    <hr>
+                </div>
+
+                <!-- ANTERIOR/PROXIMA PÁGINA -->
+                <div class="pager">
+                    <dir-pagination-controls max-size="5" direction-links="true"><dir-pagination-controls>
+                </div>              
+            </div>
+
+            <!--BUSCAR NOTICIAS-->
+            <div class="col-md-4">
+                <div class="well">
+                    <h4>Buscar notícias</h4>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">
+                                <i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" name="buscar-noticias" placeholder="Insira a palavra-chave da notícia" ng-model="filtro" ng-model-options="{debounce: 500}">
+                        </div>
+                </div>   
+
+            <!--CATEGORIAS-->
+            <div class="well categoria" ng-controller="CategoriasController">
+                <h4>Categorias</h4>
+                    <div class="row">
+                        <div class="col-lg-6" ng-repeat="categoria in categorias | limitTo : 9">
+                            <ul class="list-unstyled titulo-capitalize">
+                                <li>
+                                    <a href="">{{categoria.nome}}</a>
+                                </li>
+                            </ul>
+                        </div>                                                 
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>

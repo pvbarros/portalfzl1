@@ -1,0 +1,73 @@
+<div class="container">
+
+  <form novalidate class="hero-unit" name="formulario" ng-submit="submeter()">
+    <h1 class="jumbotron titulo-uppercase">
+      <strong>Gerenciador de Notícias</strong>
+    </h1>   
+
+    <p ng-show="mensagem.length" class="alert alert-info">
+      <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+    </p>   
+
+    <!-- IMAGEM NOTICIA (obrigatório) -->
+    <div class="form-group">
+      <label for="imagemNoticias">Imagem:</label>
+      <input type="file" id="file" name="inputImagemNoticias" class="form-control-file" required>
+
+      <span ng-show="formulario.$submitted && formulario.inputImagemNoticias.$error.required" class="form-control alert-danger">
+        <i class="fa fa-exclamation-triangle"></i> Obrigatório incluir uma imagem
+      </span>
+    </div>
+
+    <!-- TITULO NOTICIA (obrigatório) (caracteres max 32) -->
+    <div class="form-group">
+        <label>Título:</label>
+        <input type="text" ng-model="noticia.titulo" name="inputTituloNoticias" class="form-control" placeholder="Digite o título do post" required ng-maxlength="32">
+
+        <span ng-show="formulario.$submitted && formulario.inputTituloNoticias.$error.required" class="form-control alert-danger">
+          <i class="fa fa-exclamation-triangle"></i> Título obrigatório
+        </span>
+        <span ng-show="formulario.$submitted && formulario.inputTituloNoticias.$error.maxlength" class="form-control alert-danger">
+          <i class="fa fa-exclamation-triangle"></i> Permitido no máximo 32 caracteres
+        </span>
+    </div>
+
+    <!--OBRIGATÓRIO CONTEUDO (obrigatório) -->
+    <div id="editor" ng-controller="trixDemoCtrl">
+      <trix-editor ng-model="noticia.conteudo" name="trixEditor" ng-model-options="{ updateOn: 'blur' }" spellcheck="false" class="trix-content" ng-model="trix" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="trixChange(e, editor);" trix-selection-change="trixSelectionChange(e, editor);" trix-focus="trixFocus(e, editor);" trix-blur="trixBlur(e, editor);" trix-file-accept="trixFileAccept(e, editor);" trix-attachment-add="trixAttachmentAdd(e, editor);" trix-attachment-remove="trixAttachmentRemove(e, editor);" placeholder="Insira o conteúdo do post..." required></trix-editor>
+
+      <span ng-show="formulario.$submitted && formulario.trixEditor.$error.required" class="form-control alert-danger">
+              <i class="fa fa-exclamation-triangle"></i> Conteúdo obrigatório
+      </span>
+    </div>
+    <br/>
+
+    <!-- COMBOBOX CATEGORIAS (obrigatório) -->
+    <div class="form-group">
+      <label>Categoria:</label>
+      <select name="categoria" class="form-control" 
+      required 
+      ng-controller="CategoriasController" 
+      ng-model="noticia.categoria" 
+      ng-options="categoria._id as (categoria.nome | uppercase) for categoria in categorias | uppercase">
+        <option value="">Selecione a categoria da notícia</option>
+      </select>
+
+      <span ng-show="formulario.$submitted && formulario.categoria.$error.required" class="form-control alert-danger">
+          <i class="fa fa-exclamation-triangle"></i> Categoria obrigatória
+    </span>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="form-group crud-noticias">
+          <button type="submit" class="btn btn-success titulo-uppercase" name="salvar" ng-disabled="formulario.$invalid">
+            <i class="fa fa-check"></i> <strong>Salvar</strong>
+          </button>
+
+          <a href="/noticias/antigas" class="titulo-uppercase btn btn-primary">
+            <i class="fa fa-undo"></i> <strong>Cancelar</strong>
+          </a>
+      </div>
+  </form>
+  <hr>
+</div>

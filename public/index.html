@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="alurapic">
+	<head>
+		<base href="/">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+		<title>Faculdade de Tecnologia da Zona Leste</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/estilos.css">
+
+            <!-- EDITOR DE TEXTO -->
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.css">
+
+            <!-- ICONS FONTE AWESOME -->
+            <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <!-- BOOTSTRAP (REQUER JQUERY) -->
+            <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/todc-bootstrap/3.3.7-3.3.13/js/bootstrap.min.js"></script>-->
+            <script src="js/lib/jquery.js"></script>
+            <script src="js/lib/bootstrap.min.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+            <!-- EDITOR DE TEXTO E ANGULAR-->
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>-->
+            <script src="js/lib/angular.min.js"></script>
+            <script src="js/lib/angular-animate.min.js"></script>
+            <script src="js/lib/angular-route.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.js"></script>
+            <script src="js/lib/angular-trix.js"></script> 
+            <script src="js/lib/democtrl.js"></script>
+
+            <!-- PAGINAÇÃO -->
+            <script src="js/lib/dirPagination.js"></script>
+
+            <!-- CORE -->
+		<script src="js/main.js"></script>
+
+            <!-- CONTROLLERS / DIRETIVAS / SERVICOS -->
+		<script src="js/controllers/noticias-controller.js"></script>
+            <script src="js/controllers/noticia-post-controller.js"></script>
+            <script src="js/controllers/destaques-controller.js"></script>
+            <script src="js/controllers/categorias-controller.js"></script>
+		<script src="js/directives/minhas-diretivas.js"></script>      
+            <script src="js/services/meus-servicos.js"></script>
+	</head>
+	<body>
+	
+<!-- CABEÇALHO -->     
+      <header class="b-header" id="top">
+            
+            <!-- SEÇÃO ÁREA LOGIN PARA ADMINISTRADORES -->
+            <section class="container area-login">
+
+                  <div class="social-nav">
+                        <ul class="list-unstyled list-inline list-social-icons">
+                              <li>
+                                    <a href="https://www.facebook.com/fateczl" target="_blank">
+                                          <i class="fa fa-facebook-square fa-2x"></i>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a href="https://www.instagram.com/fateczonaleste/" target="_blank">
+                                          <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a href="https://twitter.com/fateczonaleste" target="_blank">
+                                          <i class="fa fa-twitter-square fa-2x"></i>
+                                    </a>
+                              </li>
+                        </ul>
+                  </div>
+
+            <div class="login"> 
+                   <button type="button" class="btn btn-light">
+                        <i class="fa fa-user fa-lg"></i> Login</button>
+                  </div>
+            </section>
+
+            <!-- CONTAINER NAVBAR MENUS-->
+            <nav class="navbar navbar-inner">
+                  <div class="container b-container">
+                              
+                  <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-navbar">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-left b-logo" href="/">
+                              <img class="img-responsive" src="assets/img/logo/FATEC-zl-logo.png">
+                        </a>
+                  </div>
+                  
+                  <div class="collapse navbar-collapse b-navcollapse" id="collapse-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">Institucional <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="institucional_historia.html">História</a></li>
+                                          <li><a href="institucional_infraestrutura.html">Infraestrutura</a></li>
+                                          <li><a href="institucional_corpo_docente.html">Corpo Docente</a></li>
+                                          <li><a href="https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/" target="_blank">Concursos</a></li>
+                                          <li><a href="#">Regulamento Interno</a></li>
+                                          <li><a href="institucional_ache_o_professor.html">Ache o Professor</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown" role="presentation">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudante <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="estudante_calendario_academico.html">Calendário Acadêmico</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="estudante_estagio.html">Estágio - Horários e Documentos</a></li>
+                                          <li><a href="http://estagiosfateczl.blogspot.com/2017/10/programa-de-estagios.html" target="_blank">Oportunidades de estágio</a></li>
+                                          <li class="divider"></li>
+                                          <li><a href="estudante_monitoria.html">Monitoria</a></li>
+                                          <li><a href="estudante_diretorio_academico.html">Diretório Acadêmico</a></li>
+                                          <li><a href="http://atleticazonaleste.wixsite.com/atleticafateczl" target="_blank">Atlética</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cursos <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="cursos_ads.html">Análise e Desenvolvimento de Sistemas</a></li>
+                                          <li><a href="cursos_comex.html">Comércio Exterior</a></li>
+                                          <li><a href="cursos_gestao_empresarial.html">Gestão Empresarial</a></li>
+                                          <li><a href="cursos_logistica.html">Logística</a></li>
+                                          <li><a href="cursos_polimeros.html">Polímeros</a></li>
+                                    </ul>
+                              </li>
+                              <li>
+                                    <a class="b-menu" href="/#/noticias/antigas">Notícias</a>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Biblioteca <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="biblioteca_infos.html">Informações</a></li>
+                                          <li><a href="http://fateczl.edu.br/openbiblio/opac/index.php" target="_blank">Consultar Acervo</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Secretaria <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="secretaria_horarios_e_docs.html">Horário e Documentos</a></li>
+                                          <li><a href="secretaria_transferencia.html">Transferência</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TCC <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="tcc_ficha_catalografica.html">Ficha Catalográfica</a></li>
+                                          <li><a href="tcc_pesquisar_tcc.html">Pesquisar TCC</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contato <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="contato_fale_fatec.html">Fale com a Fatec</a></li>
+                                          <li><a href="contato_suporte_dti.html">Suporte DTI</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MSDNAA <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="msdnaa_suporte.html">Suporte MSDNAA</a></li>
+                                          <li><a href="https://login.microsoftonline.com/" target="_blank">E-mail Institucional</a></li>
+                                          <li><a href="https://fatec.onthehub.com/WebStore/Welcome.aspx" target="_blank">Microsoft Imagine</a></li>
+                                    </ul>
+                              </li>
+                              <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle b-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGA <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                          <li><a href="https://siga.cps.sp.gov.br/aluno" target="_blank">Aluno</a></li>
+                                          <li><a href="https://siga.cps.sp.gov.br/fatec" target="_blank">Professor</a></li>
+                                    </ul>
+                              </li>
+                              <li>
+                                    <a class="b-menu" href="http://www.eadfatec.cps.sp.gov.br/" target="_blank">EAD</a>
+                              </li>
+                        </ul>
+                  </div>
+            </div>      
+            </nav>
+      </header>
+
+
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
+	
+
+      <!-- FOOTER -->
+      <footer>
+            <div class="container">
+                  <div class="row">
+
+                        <!-- REDES SOCIAIS -->
+                        <div class="col-md-4">
+                              <h4 class="titulo-rodape page-header"><strong>Nos encontre nas mídias sociais <i class="fa fa-thumbs-up"></i></strong></h4>
+                              <hr>
+                              <div class="conteudo-rodape">
+                                    <ul class="list-unstyled list-inline list-social-icons">
+                              <li>
+                                    <a href="https://www.facebook.com/fateczl" target="_blank">
+                                          <i class="fa fa-facebook-square fa-2x"></i>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a href="https://www.instagram.com/fateczonaleste/" target="_blank">
+                                          <i class="fa fa-instagram fa-2x"></i>
+                                    </a>
+                              </li>
+                              <li>
+                                    <a href="https://twitter.com/fateczonaleste" target="_blank">
+                                          <i class="fa fa-twitter-square fa-2x"></i>
+                                    </a>
+                              </li>
+                        </ul>
+                      </div>
+                        </div>                  
+
+                        <!-- ENDEREÇO FATEC -->
+                        <div class="col-md-4">
+                              <address>
+                                    <h4 class="titulo-rodape page-header"><strong>Localização <i class="fa fa-thumb-tack"></i></strong></h4>
+                                    <hr>
+                                    <div class="conteudo-rodape">
+                                          Avenida Águia de Haia, 2983, Cidade A.E Carvalho<br>
+                                          São Paulo, SP<br>
+                                          CEP 03694-000
+                                    </div>
+                              </address>
+                        </div>
+
+                        <!-- CONTATO -->
+                        <div class="col-md-4">
+                              <h4 class="titulo-rodape page-header"><strong>Contato <i class="fa fa-phone"></i></strong></h4>
+                              <hr>
+                              <address>
+                                    <div class="conteudo-rodape">
+                                          (11) 2049-2600<br>
+                                          (11) 2026-0378<br>
+                                          (11) 2026-1303<br>
+                                          (11) 2041-2187<br>
+                                    </div>
+                              </address>
+                        </div>      
+                  </div>
+
+                  <!-- LOGO CPS -->
+                  <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                              <h4 class="titulo-rodape page-header"><strong>Apoio</strong></h4>
+                              <hr>
+                              <img class="logo-rodape" src="assets/img/logo/logoCentro.png">
+                        </div>
+                  </div>
+            </div>
+      </footer>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<div class="container">
+
+  <form novalidate class="hero-unit" name="formulario">
+    <h1 class="jumbotron titulo-uppercase"><strong>Gerenciador de Destaques</strong></h1> 
+
+    <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>     
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <!-- IMAGEM DESTAQUES (obrigatório) -->
+        <div class="form-group">
+            <label for="lblNoticiasDestaques">Imagem:</label>
+            <input type="file" id="file" name="inputImagemDestaques" class="form-control-file" required>
+            
+            <span ng-show="formulario.$submitted && formulario.inputImagemDestaques.$error.required" class="form-control alert-danger">
+              <i class="fa fa-exclamation-triangle"></i> Obrigatório incluir uma imagem
+            </span>
+        </div>
+
+        <!-- TITULO DESTAQUES (obrigatório) (caracteres max 32) -->
+        <div class="form-group">
+            <label for="lblTituloDestaques">Título:</label>
+            <input type="text" ng-model="destaque.titulo" name="inputTituloDestaques" class="form-control" placeholder="Digite o título do destaque" required ng-maxlength="32">
+
+            <span ng-show="formulario.$submitted && formulario.inputTituloDestaques.$error.required" class="form-control alert-danger">
+              <i class="fa fa-exclamation-triangle"></i> Título obrigatório
+            </span>
+            <span ng-show="formulario.$submitted && formulario.inputTituloDestaques.$error.maxlength" class="form-control alert-danger">
+              <i class="fa fa-exclamation-triangle"></i> Permitido no máximo 32 caracteres
+            </span>
+        </div>
+
+        <!-- SUBTITULO DESTAQUES (opcional) -->
+        <div class="form-group">
+            <label for="lblSubTituloDestaques">Subtítulo:</label>
+            <input type="text" ng-model="destaque.subtitulo" name="inputSubTituloDestaques" class="form-control" placeholder="Digite o subtítulo do destaque">
+        </div>
+
+        <!-- LINK (opcional) -->
+        <div class="form-group">
+            <label for="lblLinkDestaques">Link:</label>
+            <input type="text" ng-model="destaque.link" name="inputLinkDestaques" class="form-control" placeholder="Insira link para redirecionar a página da notícia">
+        </div>
+
+        <!-- Botões  -->
+        <div class="form-group crud-destaques">
+            <button type="submit" class="btn btn-success titulo-uppercase" name="salvar" ng-disabled="formulario.$invalid" ng-click="submeter()" >
+              <i class="fa fa-check"></i> <strong>Salvar</strong></button>
+
+            <button type="submit" class="btn btn-danger titulo-uppercase" name="excluir" ng-disabled="formulario.$invalid">
+              <i class="fa fa-times"></i> <strong>Excluir</strong></button>
+              
+              <a href="/" class="titulo-uppercase btn btn-primary"><i class="fa fa-undo"></i> <strong>Cancelar</strong></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group titulo-capitalize">
+            <h4><strong>{{destaque.titulo}}</strong></h4>
+          </div>
+          <hr>
+
+            <minha-foto url="{{destaque.url}}" titulo="{{destaque.titulo}}"></minha-foto>
+        </div>
+      </div>
+    </div>
+
+    <!--TABELA DE DESTAQUES ANTIGOS -->
+    <div class="lista-noticias" id="lista-noticias">
+        <ul class="list-group" >
+          <li class="list-group-item titulo-capitalize" ng-repeat="destaque in images">
+             <button class="btn btn-sm btn-primary titulo-uppercase" ng-click="editar(destaque)">Editar</button> {{destaque.titulo}} 
+          </li>
+        </ul>
+      </div>
+  </form>
+  <hr>
+</div>

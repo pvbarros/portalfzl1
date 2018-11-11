@@ -1,0 +1,50 @@
+<section class="container">
+    
+    <!-- TÍTULO DA NOTICIA -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="noticia-post-titulo titulo-capitalize">{{noticia.titulo}}</h2>
+            <ol class="breadcrumb">
+                <li><a href="/">Página Inicial</a>
+                </li>
+                <li class="active titulo-noticias titulo-capitalize">{{noticia.titulo}}</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- PUBLICAÇÃO DA NOTICIA -->
+    <div class="row">
+        <div class="col-lg-8">
+            <hr>                
+            <p><i class="fa fa-clock-o horario-post"></i> Postado em {{noticia.data | date:"dd/MM/yyyy 'às' HH:mm" }}</p>
+            <hr>
+
+			<!-- IMAGEM DO POST DA NOTICIA -->
+            <img class="img-responsive img-rounded img-post-noticias" src="{{noticia.url}}" alt="{{noticia.titulo}}">
+            <hr>
+
+            <!-- CONTEUDO POST -->
+            <div class="conteudo-post-noticias">
+                <p>{{noticia.conteudo}}</p>
+        	</div>
+    	</div>
+
+		<!--CATEGORIAS-->
+		<div class="col-md-4">
+            <div class="well categoria" ng-controller="CategoriasController">
+                <h4>Categorias</h4>
+                    <div class="row" ng-controller="NoticiasController">
+                        <div class="col-lg-6" ng-repeat="categoria in categorias| limitTo : 9">
+                            <ul class="list-unstyled titulo-capitalize">
+                                <li>
+                                    <a href="">{{categoria.nome}}</a>
+                                </li>
+                            </ul>
+                        </div>   
+                    </div>                                              
+                </div>
+            </div>
+        </div>        	
+    </div>
+    <hr>
+</section>

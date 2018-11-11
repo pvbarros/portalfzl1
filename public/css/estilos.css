@@ -1,0 +1,371 @@
+html,
+body {
+	height: 100%;
+	/*padding-top: 50px;*/
+}
+
+ h1 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+/* -----ESTILO GERAL------*/
+.page-header{
+	position: relative;
+	text-align: center;
+	border-bottom-color: #8B0000;
+}
+
+.conteudo-pagina{
+	position: relative;
+	justify-content: center;
+	text-align: center;
+}
+
+.evidenciar{
+	font-size: 16px;
+	font-weight: bolder;
+	font-style: italic;	
+}
+
+.glyphicon.btn-default{
+	position: relative;
+	left: 27px;
+}
+
+.design-busca{
+	padding-top: 23px;
+}
+
+textarea{
+	resize: vertical;
+}
+
+.img-hover:hover{
+	opacity: 0.8;
+}
+
+.conteudo-noticias{
+	text-align: justify;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	direction: ltr;
+}
+
+.titulo-uppercase{
+	text-transform: uppercase;
+}
+
+.titulo-capitalize{
+	text-transform: capitalize;
+}
+/*------------------------*/
+
+
+/* -------NAVBAR------- */
+.login{
+	padding-top: 8px;
+	margin-left: 20px;
+	text-align: right;
+	padding-bottom: 8px;
+}
+
+.social-nav{
+	float: left!important;
+	padding-top: 10px;
+}
+
+.icon-nav{
+	height: 25px;
+	width: 25px;
+}
+
+.area-login{
+	border-bottom: 1px solid #eee;
+	box-sizing: border-box;
+	background-color: #fffff0;
+}
+
+.b-header{
+	background-color: #fffff0;
+}
+
+.b-container{
+	padding-left: 30px;
+	padding-right: 15px;
+	background-color: #fffff0;
+	width: 100%;
+	border-bottom: 6px solid #8B0000;
+}
+
+.b-navcollapse{
+	background-color: #fffff0;
+	height: 100%;
+	padding: 20px 0;
+}
+
+.b-menu{
+	color: #696969;
+	font-weight: bolder;
+	padding: auto;
+	width: 100%;
+	font-size: 12.4px;
+	text-transform: uppercase;
+}
+
+.b-logo{
+	height: 100%;
+}
+
+.navbar-toggle{
+	margin-top: 25px;
+}
+
+.icon-bar{
+	border-bottom: 3px solid #8B0000;
+}
+
+.dropdown-menu{
+	font-size: 13px;
+	opacity: 1;
+	margin: 10px 8px 10px;
+}
+/*----------------------*/
+
+
+/* SEÇÃO CARROSSEL */
+.fixedHeightImg{
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+/*----------------------*/
+
+
+/* ---SEÇÃO NOTICIAS--- */
+.thumbnail a>img{
+	min-width: 100%;
+	height: 220px;
+	margin-top: 13px;
+}
+
+.thumbnail{
+	height: auto;
+	width:100%;
+	display: block;
+	-webkit-box-shadow: -13px 14px 26px 0px rgba(230,230,230,0.76);
+	-moz-box-shadow: -13px 14px 26px 0px rgba(230,230,230,0.76);
+	box-shadow: -13px 14px 26px 0px rgba(230,230,230,0.76);
+}
+
+#titulo-noticias{
+	line-height: 1.5;
+	font-size: 15.5px;
+	font-weight: bolder;
+	display: block;
+}
+
+a.link-noticia{
+	color: #000;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+.horario-noticias{
+	font-size: 11px;
+}
+/*----------------------*/
+
+
+/* -- EDITOR DE TEXTO --*/
+div#editor {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
+
+#edit {
+  margin-top: 30px;
+}
+/*----------------------*/
+
+
+/* ------RODAPÉ------ */
+.icon-social{
+	height: 30px;
+	width: 30px;
+}
+
+footer {
+	background-color: #333;
+	color: #FFF;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+footer address:last-child {
+	margin-bottom: 0;
+}
+
+.conteudo-rodape{
+	text-align: center;
+	width: 100%;
+}
+
+.logo-rodape{
+	width: 100%;
+}
+/*----------------------*/
+
+
+/* -----TELA LOGIN----- */
+.content{
+	background: transparent;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%; 
+}
+/*----------------------*/
+
+
+/* ------MENU CURSOS----- */
+.img-cursos{
+	width: 100%;
+	height: 375px;
+}
+
+.conteudo-curso{
+	text-align: justify;
+	padding-top: 25px;
+}
+/*------------------------*/
+
+
+/* -----MENU NOTICIAS----- */
+.img-post-noticias{
+	height: 375px;
+	width: 830px;
+}
+/*------------------------*/
+
+
+/* --SUB CALENDARIO ACADEMICO-*/
+.img-cal-acad{
+	width: 100%;
+	height: 100%;
+}
+
+.titulo-secundario{
+	text-align: center;	
+}
+/*---------------------------*/
+
+
+/* ----MENU BIBLIOTECA---- */
+.titulo-biblio{
+	padding-top: 13px;
+}
+/*-------------------------*/
+
+
+/* --SUB DIRETORIO ACADEMICO-- */
+.img-top-post{
+	width: 100%;
+	height: 400px;
+}
+/*----------------------------*/
+
+
+/* ----MENU SECRETARIA---- */
+#titulo-docs-sec{
+	padding-top: 33px;
+}
+/*-------------------------*/
+
+
+/* ---SUB ACHE O PROF---- */
+i.glyphicon-chevron-down{
+	font-size: 0.8em;
+}
+
+.panel-group{
+	padding-top: 10px;
+}
+/*-------------------------*/
+
+
+/* ---SUB PESQUISAR TCC--- */
+.table-responsive{
+	padding-top: 23px;
+}
+/*-------------------------*/
+
+
+/* ---SUB FALE COM FATEC-- */
+#oculta{
+	display: none;
+}
+/*-------------------------*/
+
+
+/* ----SUB INFRA FATEC----*/
+.img-infra{
+	width: 100%;
+	height: 375px;
+}
+/*-------------------------*/
+
+
+/* ----SUB SOBRE FATEC---- */
+.img-sobre-fatec{
+	width: 100%;
+	height: 465px;
+	image-rendering: auto;
+}
+/*-------------------------*/
+
+
+/* ---SUB CORPO DOCENTE--- */
+.icon-lattes{
+	max-width: 30px;
+	max-height: 30px;
+}
+/*-------------------------*/
+
+
+/*-------------------------------GERENCIADORES-------------------------------*/
+
+/* --GERENCIADOR PATTERN-- */
+.list-group{
+	height: 300px;
+    overflow-y: auto;
+}
+
+.modal-backdrop{
+	position: unset;
+}
+
+.pesquisar-animado.ng-leave-active {
+  -moz-transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  transform: scale(0.1);
+} 
+
+.pesquisar-animado{
+    -moz-transition:transform 0.8s;
+    -webkit-transition:transform 0.8s;
+    -ms-transition:transform 0.8s;
+    -o-transition:transform 0.8s;
+    transition:transform 0.8s;
+}
+/*------------------------*/

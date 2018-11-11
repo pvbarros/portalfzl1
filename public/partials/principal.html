@@ -1,0 +1,113 @@
+<!-- SEÇÃO DESTAQUES / CARROSSEL -->
+<section class="container" ng-controller="DestaquesController">
+	<div id="carouseldestaques" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <ol class="carousel-indicators">
+            <li data-target="#carouseldestaques" data-ng-repeat="img in images | limitTo:7" data-ng-class="{active : $first}" data-slide-to="{{$index}}"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item" data-ng-repeat="image in images" data-ng-class="{active : $first}">
+            	<a href="{{image.link}}">
+                	<img class="img-hover center-block fixedHeightImg" data-ng-src="{{image.url}}" alt=" {{image.titulo}} {{$index}}" />
+                </a>
+                <figcaption class="carousel-caption titulo-capitalize">
+		            <h3><strong>{{image.titulo}}</strong></h3>
+		            <h4>{{image.subtitulo}}</h4>
+		        </figcaption>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- SEÇÃO NOTICIAS -->
+<section id="div-noticias" class="container">
+	<hr>
+	<h3 class="titulo-uppercase"><strong>Últimas Notícias</strong></h3>
+	<hr>
+
+	<div class="row">
+		<div class="col-sm-6 col-md-4" ng-repeat="noticia in noticias | limitTo : 6">
+			<figure class="thumbnail">
+				<a class="link-noticia" href="noticia/post/{{noticia._id}}">
+					<img class="img-responsive img-rounded img-hover" src="{{noticia.url}}" alt="{{noticia.titulo}}">
+				</a>
+				<figcaption class="caption">
+					<p class="horario-noticias">
+						<i class="fa fa-clock-o"></i> Postado em {{noticia.data | date:"dd/MM/yyyy 'às' HH:mm"}} 
+					</p>
+						<h3 id="titulo-noticias" class="noticia-post-titulo">
+							<a class="link-noticia titulo-uppercase" href="noticia/post/{{noticia._id}}">{{noticia.titulo | limitTo:32}}</a>
+						</h3>
+						<p class="conteudo-noticias">{{noticia.conteudo}}</p>
+							<a href="noticia/post/{{noticia._id}}" class="btn btn-primary" ng-click="verMais(noticia)">Ver mais</a>
+												
+
+				</figcaption>
+			</figure>
+			<hr>
+		</div>
+	</div>
+</section>
+
+<!-- SEÇÃO INSTITUCIONAL E CONTATO -->
+<div class="container">
+	<div class="row">
+
+		<!-- SEÇÃO VIDEO INSTITUCIONAL -->
+		<section id="video" class="col-sm-6">
+			<h3 class="titulo-uppercase"><strong>Video Institucional</strong></h3>
+			<hr>
+			<div class="embed-responsive embed-responsive-4by3">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/IPJa2paeN2c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+		</section>
+
+		<!-- SEÇÃO ENTRE EM CONTATO -->
+		<section id="contato" class="col-sm-6">
+			<h3 class="titulo-uppercase"><strong>Contato</strong> <small>Saiba onde nos encontrar</small></h3>
+			<hr>
+
+			<!--ENDEREÇO -->
+			<p class="endereco"><i class="fa fa-thumb-tack"></i> 
+				Avenida Águia de Haia, 2983, Cidade A.E Carvalho
+			</p>
+
+			<!-- TELEFONES -->
+			<p class="telefone"><i class="fa fa-phone"></i>
+					(11) 2049-2600
+			</p>
+
+			<p class="telefone"><i class="fa fa-phone"></i> 
+				(11) 2026-0378
+			</p>
+
+			<p class="telefone"><i class="fa fa-phone"></i> 
+				(11) 2026-1303
+			</p>
+
+			<p class="telefone"><i class="fa fa-phone"></i> 
+				(11) 2041-2187
+			</p>
+			
+			<!-- REDES SOCIAIS -->
+			<ul class="list-unstyled list-inline list-social-icons">
+				<li>
+					<a href="https://www.facebook.com/fateczl" target="_blank">
+						<i class="fa fa-facebook-square fa-2x"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/fateczonaleste/" target="_blank">
+						<i class="fa fa-instagram fa-2x"></i>
+					</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/fateczonaleste" target="_blank">
+						<i class="fa fa-twitter-square fa-2x"></i>
+					</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
