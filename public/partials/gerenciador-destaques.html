@@ -47,11 +47,9 @@
         <div class="form-group crud-destaques">
             <button type="submit" class="btn btn-success titulo-uppercase" name="salvar" ng-disabled="formulario.$invalid" ng-click="submeter()" >
               <i class="fa fa-check"></i> <strong>Salvar</strong></button>
-
-            <button type="submit" class="btn btn-danger titulo-uppercase" name="excluir" ng-disabled="formulario.$invalid">
-              <i class="fa fa-times"></i> <strong>Excluir</strong></button>
               
-              <a href="/" class="titulo-uppercase btn btn-primary"><i class="fa fa-undo"></i> <strong>Cancelar</strong></a>
+              <a href="/destaques/antigos" class="titulo-uppercase btn btn-primary">
+                <i class="fa fa-undo"></i> <strong>Cancelar</strong></a>
         </div>
       </div>
 
@@ -66,15 +64,6 @@
         </div>
       </div>
     </div>
-
-    <!--TABELA DE DESTAQUES ANTIGOS -->
-    <div class="lista-noticias" id="lista-noticias">
-        <ul class="list-group" >
-          <li class="list-group-item titulo-capitalize" ng-repeat="destaque in images">
-             <button class="btn btn-sm btn-primary titulo-uppercase" ng-click="editar(destaque)">Editar</button> {{destaque.titulo}} 
-          </li>
-        </ul>
-      </div>
   </form>
   <hr>
 </div>

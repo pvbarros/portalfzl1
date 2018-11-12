@@ -70,8 +70,8 @@ angular.module('alurapic').controller('NoticiasController', function($scope, $ht
 					console.log(erro);
 					$scope.mensagem = 'Não foi possível incluir a notícia';
 				});				 
-			} //fecha else
-		} //fecha if
+			}
+		}
 	};
 	
 	$scope.remover = function(noticia) {

@@ -1,4 +1,4 @@
-angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'trixDemo', 'angularUtils.directives.dirPagination'])
+angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'trixDemo', 'angularUtils.directives.dirPagination', 'summernote'])
 	.config(function($routeProvider, $locationProvider) {
 
 		$locationProvider.html5Mode(true);
@@ -15,6 +15,16 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'trixDemo'
 
 		$routeProvider.when('/destaques/new', {
 			templateUrl: 'partials/gerenciador-destaques.html',
+			controller: 'DestaquesController'
+		});
+
+		$routeProvider.when('/destaques/edit/:destaqueId', {
+			templateUrl: 'partials/gerenciador-destaques.html',
+			controller: 'DestaquesController'
+		});
+
+		$routeProvider.when('/destaques/antigos', {
+			templateUrl: 'partials/destaques-antigos.html',
 			controller: 'DestaquesController'
 		});
 

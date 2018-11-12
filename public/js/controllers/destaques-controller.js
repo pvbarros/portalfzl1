@@ -1,9 +1,9 @@
-angular.module('alurapic').controller('DestaquesController', function($scope, $http) {
+angular.module('alurapic').controller('DestaquesController', function($scope, $http, $routeParams) {
 
     $scope.destaque = {};
     $scope.mensagem = '';
     $scope.images = [];
-
+    $scope.filtro = '';
 
     $http.get('/destaques')
       .success(function(retorno) {
@@ -12,7 +12,18 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
     })
       .error(function(erro) {
         console.log(erro);
-    });  
+    });
+
+    if($routeParams.destaqueId){
+        $http.get('/destaques' + $routeParams.destaqueId)
+        .success(function(destaque) {
+            $scope.destaque = destaque;
+        })
+        .error(function(erro) {
+            console.log(erro);
+            $scope.mensagem = 'Notícia alterada com sucesso';
+        });
+    }
 
     $scope.submeter = function() {
 
@@ -45,28 +56,4 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
         }
         */
     };
-
-    $scope.editar = function(destaque) {
-
-        console.log(destaque);
-        
-
-        /*
-        $http.get('/destaques' + destaque._id)
-		.success(function() {
-
-			console.log('Leia a notícia "' + noticias.titulo + '" na íntegra');
-		})
-		.error(function(erro) {
-			console.log(erro);
-			console.log('Não foi possível abrir a notícia "' + noticias.titulo + '"');
-        });
-        */
-
-
-
-
-
-    };
-
-    });
+});

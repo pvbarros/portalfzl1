@@ -1,0 +1,85 @@
+<section class="container" id="destaques">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Destaques <small>Antigos</small></h2>
+                <hr>
+                <ol class="breadcrumb">
+                    <li><a href="/">Página Inicial</a>
+                    </li>
+                    <li class="active">Destaques</li>
+                </ol>
+            </div>
+        </div>
+    
+        <!-- CORPO DOS DESTAQUES -->
+        <div class="row">
+            <div class="col-md-8 pesquisar-animado">
+    
+                <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
+                    <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir destaque</strong>
+                </a>
+    
+                <p ng-show="mensagem.length" class="alert alert-info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+                </p> 
+                
+                <div dir-paginate="destaque in images | itemsPerPage:5 | filter: filtro">
+                    <h3 class="titulo-noticias titulo-capitalize">{{destaque.titulo}}
+                        <br><small>{{destaque.subtitulo}}</small>
+                    </h3>
+                    <p>
+                        <i class="fa fa-clock-o"></i> Postado em {{destaque.data | date:"dd/MM/yyyy 'às' HH:mm" }}</p>
+                    <hr>
+                    <a href="{{destaque.link}}">
+                        <img class="img-responsive img-hover img-rounded img-post-noticias" src="{{destaque.url}}" alt="{{destaque.titulo}}">
+                    </a>
+                    <hr>
+    
+                    <!-- BOTÕES -->    
+                    <a href="destaques/edit/{{destaque._id}}" class="btn btn-warning titulo-uppercase">
+                        <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
+                    </a>
+    
+                    <button class="btn btn-danger titulo-uppercase" data-toggle="modal" data-target="#confirm">
+                        <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
+                    </button>
+                    <div class="modal fade" id="confirm" role="dialog">
+                        <div class="modal-dialog modal-md">
+                    
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <p>Deseja realmente excluir o destaque <strong class="titulo-capitalize"> {{destaque.titulo}}</strong>?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button ng-click="remover()" class="btn btn-danger">Apagar</button>
+                                    <button data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+
+                    <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
+                        <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir</strong>
+                    </a>
+                    <hr>
+                </div>
+    
+                <!-- ANTERIOR/PROXIMA PÁGINA -->
+                <div class="pager">
+                    <dir-pagination-controls max-size="5" direction-links="true"><dir-pagination-controls>
+                </div>              
+            </div>
+    
+            <!--BUSCAR DESTAQUES-->
+            <div class="col-md-4">
+                <div class="well">
+                    <h4>Buscar destaque</h4>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                            <i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Insira a palavra-chave do destaque" ng-model="filtro" ng-model-options="{debounce: 500}">
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>

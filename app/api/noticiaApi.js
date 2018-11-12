@@ -64,7 +64,6 @@ api.atualiza = function(req, res) {
 	})
 };
 
-
 module.exports = function(app){
      return api;
  };
