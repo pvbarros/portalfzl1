@@ -1,4 +1,6 @@
-angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'trixDemo', 'angularUtils.directives.dirPagination', 'summernote'])
+angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 
+	'trixDemo', 'angularUtils.directives.dirPagination', 'summernote', 
+		'ngBootbox'])
 	.config(function($routeProvider, $locationProvider) {
 
 		$locationProvider.html5Mode(true);

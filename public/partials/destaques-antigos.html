@@ -14,53 +14,41 @@
         <!-- CORPO DOS DESTAQUES -->
         <div class="row">
             <div class="col-md-8 pesquisar-animado">
-    
-                <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
-                    <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir destaque</strong>
-                </a>
-    
+                
                 <p ng-show="mensagem.length" class="alert alert-info">
                     <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
-                </p> 
+                </p>
+
+                <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
+                    <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir destaque</strong>
+                </a>    
                 
-                <div dir-paginate="destaque in images | itemsPerPage:5 | filter: filtro">
-                    <h3 class="titulo-noticias titulo-capitalize">{{destaque.titulo}}
+                <div dir-paginate="destaque in destaques | itemsPerPage:5 | filter: filtro">
+                    <h3 class="titulo-noticias titulo-capitalize">{{destaque.titulo}} 
                         <br><small>{{destaque.subtitulo}}</small>
                     </h3>
+                    
                     <p>
                         <i class="fa fa-clock-o"></i> Postado em {{destaque.data | date:"dd/MM/yyyy 'às' HH:mm" }}</p>
                     <hr>
-                    <a href="{{destaque.link}}">
+                    <a href="{{destaque.link}}" target="_blank">
                         <img class="img-responsive img-hover img-rounded img-post-noticias" src="{{destaque.url}}" alt="{{destaque.titulo}}">
                     </a>
                     <hr>
     
                     <!-- BOTÕES -->    
+                    <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
+                        <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir</strong>
+                    </a>
+                    
                     <a href="destaques/edit/{{destaque._id}}" class="btn btn-warning titulo-uppercase">
                         <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
                     </a>
     
-                    <button class="btn btn-danger titulo-uppercase" data-toggle="modal" data-target="#confirm">
+                    <button class="btn btn-danger titulo-uppercase" ng-click="remover(destaque)">
                         <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
                     </button>
-                    <div class="modal fade" id="confirm" role="dialog">
-                        <div class="modal-dialog modal-md">
-                    
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <p>Deseja realmente excluir o destaque <strong class="titulo-capitalize"> {{destaque.titulo}}</strong>?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button ng-click="remover()" class="btn btn-danger">Apagar</button>
-                                    <button data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                </div>
-                            </div>                        
-                        </div>
-                    </div>
 
-                    <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
-                        <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir</strong>
-                    </a>
                     <hr>
                 </div>
     

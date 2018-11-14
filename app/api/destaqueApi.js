@@ -17,7 +17,7 @@ api.salva = function(req, res) {
 
 api.lista = function(req, res) {
 
-  model.find()
+  model.find().sort({data: 'desc'})
 		.then(function(destaque) {
 			res.json(destaque);
 		}, function(error) {
@@ -55,14 +55,14 @@ api.removePorId = function(req, res) {
 
 api.atualiza = function(req, res) {
 
-  		model.findByIdAndUpdate(req.params.id, req.body)
-  		.then(function(destaque) {
-  			res.send('destaque atualizado');
-  		}, function(error) {
-  			console.log(error);
-  			res.sendStatus(500);
-  		})
-  	};
+	model.findByIdAndUpdate(req.params.id, req.body)
+	.then(function(destaque) {
+		res.send('destaque atualizado');
+	}, function(error) {
+		console.log(error);
+		res.sendStatus(500);
+	})
+};
 
 
 module.exports = function(app){

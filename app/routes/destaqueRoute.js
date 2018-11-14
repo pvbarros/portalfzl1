@@ -10,6 +10,8 @@ module.exports = function(app) {
 
     app.post("/destaque", upload.any(), function(req,res){
 
+      req.body.data = new Date();
+
       if(req.files){
         req.files.forEach(function (file){
           var nomeImg = (new Date).valueOf()+"-"+file.originalname
@@ -24,11 +26,31 @@ module.exports = function(app) {
       api.salva(req.body, function(exception, result){
         console.log('Destaque criado: ' + result);
         res.json(result);
-      });
-      
-      
+      });      
     });
 
+    app.put("/destaque:id", upload.any(), function(req,res) {
+
+      req.body.data = new Date();
+      
+      if(req.files){
+        req.files.forEach(function (file){
+          var nomeImg = (new Date).valueOf()+"-"+file.originalname
+          fs.rename(file.path, caminhoImg + nomeImg, function(err){
+            if(err)throw err;
+            console.log("file uploaded")
+          });
+          req.body.url = "imagens/destaque/" + nomeImg;        
+        });
+      }
+
+      api.atualiza(req.body, res, function(exception, result) {
+        console.log('Destaque atualizado:' +result);
+        res.json(result);
+      });
+
+    });
+    
     app.get("/destaques:id",function(req,res) {
 
       api.buscaPorID(req.params.id,res);
@@ -38,12 +60,6 @@ module.exports = function(app) {
     app.delete("/destaque:id",function(req,res) {
 
       api.removePorId(req.params.id,res);
-
-    });
-
-    app.put("/destaque:id",function(req,res) {
-
-      api.atualiza(req,res);
 
     });
 }

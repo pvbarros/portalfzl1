@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
- 	 conteudo: {
+ 	conteudo: {
 		type: String,
 		required: true
 	},

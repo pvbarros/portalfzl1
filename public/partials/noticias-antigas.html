@@ -14,14 +14,14 @@
     <!-- CORPO DAS NOTICIAS -->
     <div class="row">
         <div class="col-md-8 pesquisar-animado">
+            
+            <p ng-show="mensagem.length" class="alert alert-info">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+            </p>
 
             <a href="/noticias/new" class="btn btn-primary titulo-uppercase">
                 <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir notícia</strong>
             </a>
-
-            <p ng-show="mensagem.length" class="alert alert-info">
-                <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
-            </p> 
             
             <div dir-paginate="noticia in noticias | itemsPerPage:5 | filter: filtro">
                 <h3 class="titulo-noticias titulo-capitalize">
@@ -38,31 +38,21 @@
                 </div>
 
                 <!-- BOTÕES -->
-                <a class="btn btn-primary" href="/noticia/post/{{noticia._id}}">Leia Mais 
+                <a class="btn btn-info" href="/noticia/post/{{noticia._id}}">Leia Mais 
                     <i class="fa fa-angle-right"></i>
+                </a>
+
+                <a href="noticias/new" class="btn btn-primary titulo-uppercase">
+                    <i class="fa fa-plus" aria-hidden="true"></i><strong> Incluir</strong>
                 </a>
 
                 <a href="noticias/edit/{{noticia._id}}" class="btn btn-warning titulo-uppercase">
                     <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
                 </a>
 
-                <button class="btn btn-danger titulo-uppercase" data-toggle="modal" data-target="#confirm">
+                <button class="btn btn-danger titulo-uppercase" ng-click="remover(noticia)">
                     <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
                 </button>
-                <div class="modal fade" id="confirm" role="dialog">
-                    <div class="modal-dialog modal-md">
-                
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <p>Deseja realmente excluir a notícia <strong class="titulo-capitalize"> {{noticia.titulo}}</strong>?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button ng-click="remover(noticia)" class="btn btn-danger">Apagar</button>
-                                <button data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                            </div>
-                        </div>                        
-                    </div>
-                </div>
                 <hr>
             </div>
 

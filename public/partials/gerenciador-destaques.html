@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form novalidate class="hero-unit" name="formulario">
+  <form novalidate class="hero-unit" name="formulario"  ng-submit="submeter()">
     <h1 class="jumbotron titulo-uppercase"><strong>Gerenciador de Destaques</strong></h1> 
 
     <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>     
@@ -45,7 +45,7 @@
 
         <!-- Botões  -->
         <div class="form-group crud-destaques">
-            <button type="submit" class="btn btn-success titulo-uppercase" name="salvar" ng-disabled="formulario.$invalid" ng-click="submeter()" >
+            <button type="submit" class="btn btn-success titulo-uppercase" name="salvar" ng-disabled="formulario.$invalid">
               <i class="fa fa-check"></i> <strong>Salvar</strong></button>
               
               <a href="/destaques/antigos" class="titulo-uppercase btn btn-primary">

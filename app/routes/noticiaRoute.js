@@ -31,6 +31,8 @@ module.exports = function(app) {
 
     app.put("/noticia:id", upload.any(), function(req,res) {
 
+      req.body.data = new Date();
+
       if(req.files){
         req.files.forEach(function (file){
           var nomeImg = (new Date).valueOf()+"-"+file.originalname
@@ -42,7 +44,7 @@ module.exports = function(app) {
         });
       }
 
-      api.atualiza(req.body, function(exception, result) {
+      api.atualiza(req.body, res, function(exception, result) {
         console.log('Notícia criada: ' + result);
         res.json(result);
       });

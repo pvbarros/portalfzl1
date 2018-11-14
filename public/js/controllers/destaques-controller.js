@@ -1,14 +1,14 @@
-angular.module('alurapic').controller('DestaquesController', function($scope, $http, $routeParams) {
+angular.module('alurapic').controller('DestaquesController', function($scope, $http, $routeParams, $ngBootbox) {
 
     $scope.destaque = {};
     $scope.mensagem = '';
-    $scope.images = [];
+    $scope.destaques = [];
     $scope.filtro = '';
 
     $http.get('/destaques')
       .success(function(retorno) {
         console.log(retorno);
-        $scope.images = retorno;
+        $scope.destaques = retorno;
     })
       .error(function(erro) {
         console.log(erro);
@@ -26,34 +26,68 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
     }
 
     $scope.submeter = function() {
-
+        
         var formData = new FormData;
-
+        
         for (key in $scope.destaque){
             formData.append(key, $scope.destaque[key]);
             console.log( $scope.destaque[key]);            
         }
-
+        
         var file = $('#file')[0].files[0];
         formData.append('image',file);
-
-        console.log(formData);
-    
-        $http.post('/destaque', formData,{
-            tranformRequest: angular.identity,
-            headers:{
-                'Content-Type' : undefined
-            }
-
-        }).then(function(res){
-
-        });
-
         
-        /*if ($scope.formulario.$valid) {
-
-            
+        console.log(formData);
+        
+        if($scope.formulario.$valid){
+            if($scope.destaque._id){
+                $http.put('/destaque', + $scope.destaque._id, formData,{
+                    tranformRequest: angular.identity,
+                    headers:{
+                        'Content-Type' : undefined
+                    }
+                })
+                .success(function(){
+                    $scope.mensagem = 'Destaque atualizado com sucesso';
+                })
+                .error(function(erro) {
+                    console.log(erro);
+                    $scope.mensagem = 'Não foi possível atualizar o destaque';
+                });
+            } else {
+                $http.post('/destaque', formData,{
+                    tranformRequest: angular.identity,
+                    headers:{
+                        'Content-Type' : undefined
+                    }
+                })
+                .success(function(){
+                    $scope.mensagem = 'Destaque incluído com suceso';
+                })
+                .error(function(erro) {
+                    console.log(erro);
+                    $scope.mensagem = 'Não foi possível incluir o destaque';
+                });
+            }
         }
-        */
     };
+
+    $scope.remover = function(destaque){
+
+		$ngBootbox.confirm('Deseja realmente excluir o destaque ' +destaque.titulo+ '?')
+        .then(function() {
+			$http.delete('/destaque' + destaque._id)
+			.success(function() {
+				$scope.destaques.splice($scope.destaques.indexOf(destaque), 1);
+				$scope.mensagem = 'Destaque ' + destaque.titulo + ' excluído com sucesso';
+			})
+			.error(function(erro) {
+				console.log(erro);
+				$scope.mensagem = 'Não foi possível excluir o destaque ' + destaque.titulo;
+			});
+        },
+        function() {
+          console.log('Operação de exclusão cancelada');
+        });
+    }; 
 });

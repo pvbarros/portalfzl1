@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('NoticiasController', function($scope, $http, $routeParams) {
+angular.module('alurapic').controller('NoticiasController', function($scope, $http, $routeParams, $ngBootbox) {
 	
 	$scope.noticias = [];
     $scope.noticia = {};
@@ -42,7 +42,7 @@ angular.module('alurapic').controller('NoticiasController', function($scope, $ht
 
 		if($scope.formulario.$valid){
 			if($scope.noticia._id){
-				$http.put('/noticia' + $scope.noticia._id, formData,{
+				$http.put('/noticia' + formData._id, formData,{
 					tranformRequest: angular.identity,
 					headers:{
 						'Content-Type' : undefined
@@ -73,23 +73,25 @@ angular.module('alurapic').controller('NoticiasController', function($scope, $ht
 			}
 		}
 	};
-	
-	$scope.remover = function(noticia) {
 
-		$http.delete('/noticia' + noticia._id)
-		.success(function() {
-			var indiceNoticia = $scope.noticias.indexOf(noticia);
-			$scope.noticias.splice(indiceNoticia, 1);
-			$scope.mensagem = 'Notícia ' + noticia.titulo + ' excluída com sucesso';
-		})
-		.error(function(erro) {
-			console.log(erro);
-			$scope.mensagem = 'Não foi possível excluir a notícia ' + noticia.titulo;
-		});
-		$scope.confirma = bootbox.confirm("Operação realizada", function(result){
-			console.log('Exclusão da notícia' + result);
-		});
-	};
+	$scope.remover = function(noticia){
+
+		$ngBootbox.confirm('Deseja realmente excluir a notícia ' +noticia.titulo+ '?')
+        .then(function() {
+			$http.delete('/noticia' + noticia._id)
+			.success(function() {
+				$scope.noticias.splice($scope.noticias.indexOf(noticia), 1);
+				$scope.mensagem = 'Notícia ' + noticia.titulo + ' excluída com sucesso';
+			})
+			.error(function(erro) {
+				console.log(erro);
+				$scope.mensagem = 'Não foi possível excluir a notícia ' + noticia.titulo;
+			});
+        },
+        function() {
+          console.log('Operação de exclusão cancelada');
+        });
+    };
 
 	$scope.verMais = function(noticia) {
 		

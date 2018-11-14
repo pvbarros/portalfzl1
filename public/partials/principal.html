@@ -2,7 +2,7 @@
 <section class="container" ng-controller="DestaquesController">
 
 	<hr>
-	<div class="input-group group-destaques">
+	<div class="input-group group-detalhes">
 		<h3 class="titulo-uppercase"><strong>Destaques</strong>
 			<a href="/destaques/antigos" class="btn btn-primary titulo-uppercase">
 				<i class="fa fa-cog" aria-hidden="true"></i><strong> Mais detalhes</strong></a>
@@ -12,12 +12,12 @@
 
 	<div id="carouseldestaques" class="carousel slide" data-ride="carousel" data-interval="5000">
         <ol class="carousel-indicators">
-            <li data-target="#carouseldestaques" data-ng-repeat="img in images | limitTo:7" data-ng-class="{active : $first}" data-slide-to="{{$index}}"></li>
+            <li data-target="#carouseldestaques" data-ng-repeat="img in destaques | limitTo:7" data-ng-class="{active : $first}" data-slide-to="{{$index}}"></li>
         </ol>
 
         <div class="carousel-inner" role="listbox">
-            <div class="item" data-ng-repeat="image in images" data-ng-class="{active : $first}">
-            	<a href="{{image.link}}">
+            <div class="item" data-ng-repeat="image in destaques" data-ng-class="{active : $first}">
+            	<a href="{{image.link}}" target="_blank">
                 	<img class="img-hover center-block fixedHeightImg" data-ng-src="{{image.url}}" alt=" {{image.titulo}} {{$index}}" />
                 </a>
                 <figcaption class="carousel-caption titulo-capitalize">
@@ -40,6 +40,7 @@
 				<i class="fa fa-cog" aria-hidden="true"></i><strong> Mais detalhes</strong></a>
 		</h3>
 	</div>
+	<hr>
 
 	<div class="row">
 		<div class="col-sm-6 col-md-4" ng-repeat="noticia in noticias | limitTo : 6">

@@ -13,7 +13,7 @@ api.salva = function(req, res) {
 			console.log(error);
 			res.sendStatus(500);
 		});
-}
+};
 
 api.lista = function(req, res) {
 
@@ -24,8 +24,7 @@ api.lista = function(req, res) {
 			console.log(error);
 			res.status(500).json(error);
 		});
-
-}
+};
 
 api.buscaPorID = function(req, res){
   model.findById(req)
@@ -37,8 +36,7 @@ api.buscaPorID = function(req, res){
 			res.sendStatus(500);
       res.send('Não achou');
 		});
-
-}
+};
 
 api.removePorId = function(req, res) {
 
@@ -48,9 +46,7 @@ api.removePorId = function(req, res) {
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
-
 		});
-
 	};
 
 api.atualiza = function(req, res) {
