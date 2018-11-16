@@ -15,6 +15,7 @@
     "bootbox": "^4.4.0",
     "consign": "^0.1.2",
     "express": "^4.13.3",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^4.3.1",
     "multer": "^1.4.1",
     "ngbootbox": "^0.2.0"

@@ -31,8 +31,6 @@ module.exports = function(app) {
 
     app.put("/noticia:id", upload.any(), function(req,res) {
 
-      req.body.data = new Date();
-
       if(req.files){
         req.files.forEach(function (file){
           var nomeImg = (new Date).valueOf()+"-"+file.originalname

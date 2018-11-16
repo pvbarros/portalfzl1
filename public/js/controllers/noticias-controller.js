@@ -4,7 +4,6 @@ angular.module('alurapic').controller('NoticiasController', function($scope, $ht
     $scope.noticia = {};
 	$scope.filtro = '';
 	$scope.mensagem = '';
-	$scope.confirma = '';
 	
 	$http.get('/noticias')
 	.success(function(retorno) {

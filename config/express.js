@@ -13,12 +13,15 @@ app.use(function (req, res, next) {
 	next();
   });
 
+app.set('secret', 'portalfzl');
+
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 consign({cwd: 'app'})
 	.include('models')
 	.then('api')
+	.then('routes/authRoute.js')
 	.then('routes')
 	.into(app);
 

@@ -30,8 +30,6 @@ module.exports = function(app) {
     });
 
     app.put("/destaque:id", upload.any(), function(req,res) {
-
-      req.body.data = new Date();
       
       if(req.files){
         req.files.forEach(function (file){
@@ -52,8 +50,10 @@ module.exports = function(app) {
     });
     
     app.get("/destaques:id",function(req,res) {
-
+      
       api.buscaPorID(req.params.id,res);
+      
+      
 
     });
 

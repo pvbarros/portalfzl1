@@ -6,52 +6,50 @@ var api = {};
 api.salva = function(req, res) {
 
   model.create(req,res)
-		.then(function(destaque) {
-			res.json(destaque);
-		}, function(error) {
-			console.log('não conseguiu');
-			console.log(error);
-			res.sendStatus(500);
-		});
-}
+	.then(function(destaque) {
+		res.json(destaque);
+	}, function(error) {
+		console.log('não conseguiu');
+		console.log(error);
+		res.sendStatus(500);
+	});
+};
 
 api.lista = function(req, res) {
 
   model.find().sort({data: 'desc'})
-		.then(function(destaque) {
-			res.json(destaque);
-		}, function(error) {
-			console.log(error);
-			res.status(500).json(error);
-		});
+	.then(function(destaque) {
+		res.json(destaque);
+	}, function(error) {
+		console.log(error);
+		res.status(500).json(error);
+	});
 
-}
+};
 
 api.buscaPorID = function(req, res){
   model.findById(req)
-		.then(function(destaque) {
-			if (!noticia) res.send('Destaque não encontrado');
-			res.json(destaque);
-		}, function(error) {
-			console.log(error);
-			res.sendStatus(500);
-      res.send('Não achou');
-		});
-
-}
+	.then(function(destaque) {
+		if (!destaque) res.send('Destaque não encontrado');
+		res.json(destaque);
+	}, function(error) {
+		console.log(error);
+		res.sendStatus(500);
+	res.send('Não achou');
+	});
+};
 
 api.removePorId = function(req, res) {
 
-		model.remove({'_id' : req})
-		.then(function() {
-			res.sendStatus(200);
-		}, function(error) {
-			console.log(error);
-			res.sendStatus(500);
+	model.remove({'_id' : req})
+	.then(function() {
+		res.sendStatus(200);
+	}, function(error) {
+		console.log(error);
+		res.sendStatus(500);
 
-		});
-
-	};
+	});
+};
 
 api.atualiza = function(req, res) {
 

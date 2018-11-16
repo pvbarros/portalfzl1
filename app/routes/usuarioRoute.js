@@ -15,7 +15,7 @@ module.exports = function(app) {
   
     });
   
-    app.get("/usuario",api.lista);
+    app.get("/usuarios",api.lista);
   
   
   }

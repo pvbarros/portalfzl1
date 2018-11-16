@@ -50,6 +50,12 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute',
 			controller: 'NoticiaPostController'
 		});
 
+		$routeProvider.when('/login', {
+			templateUrl: 'partials/login.html',
+			controller: 'LoginController'
+            
+        });
+
 		$routeProvider.otherwise({redirectTo: '/'});
 
 	});
