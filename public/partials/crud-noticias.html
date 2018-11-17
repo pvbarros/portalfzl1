@@ -1,0 +1,67 @@
+<section class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Notícias <small>Antigos</small></h2>
+                <hr>
+                <ol class="breadcrumb">
+                    <li><a href="/">Página Inicial</a>
+                    </li>
+                    <li class="active">Gerenciar Notícias</li>
+                </ol>
+            </div>
+        </div>
+    
+        <p ng-show="mensagem.length" class="alert alert-info">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+        </p>
+    
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group">
+                        <span class="input-group-btn">
+                            <a href="/noticias/new" class="btn btn-primary titulo-uppercase">
+                                <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir notícia</strong>
+                            </a>
+                        </span>
+                    <input type="text" class="form-control" name="buscar-noticias" placeholder="Insira a palavra-chave da notícia" ng-model="filtro" ng-model-options="{debounce: 500}">     
+                </div>
+            </div>
+        </div>
+    
+        <!-- LISTA NOTICIAS ANTIGOS -->
+        <div class="row">
+            <div class="col-md-8">           
+                <div class="list-group">
+                    <div class="list-group-item list-group-item-action flex-column align-items-start" dir-paginate="noticia in noticias | itemsPerPage:5 | filter:filtro">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="titulo-capitalize">
+                                <h4 class="mb-1">{{noticia.titulo}}</h4>
+                            </div>
+                            <small>
+                                <i class="fa fa-clock-o"></i> Postado em {{noticia.data | date:"dd/MM/yyyy 'às' HH:mm" }}
+                            </small>
+                        </div>
+                        <br/>
+                        <img class="img-responsive img-hover img-rounded img-gerenciador" src="{{noticia.url}}" alt="{{noticia.titulo}}">
+                        <div class="conteudo-noticias">
+                            <p>{{noticia.conteudo}}</p>
+                        </div>
+                        <p class="mb-1">
+                            <a href="noticias/edit/{{noticia._id}}" class="btn btn-warning titulo-uppercase">
+                                <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
+                            </a>
+            
+                            <button class="btn btn-danger titulo-uppercase" ng-click="remover(noticia)">
+                                <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
+                            </button>
+                        </p>                  
+                    </div>
+    
+                    <!-- ANTERIOR/PROXIMA PÁGINA -->
+                    <div class="pager">
+                        <dir-pagination-controls max-size="5" direction-links="true"><dir-pagination-controls>
+                    </div>             
+                </div>
+            </div>
+        </div>     
+    </section>

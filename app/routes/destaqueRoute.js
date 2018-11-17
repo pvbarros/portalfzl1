@@ -52,8 +52,6 @@ module.exports = function(app) {
     app.get("/destaques:id",function(req,res) {
       
       api.buscaPorID(req.params.id,res);
-      
-      
 
     });
 

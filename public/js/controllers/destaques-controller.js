@@ -17,7 +17,6 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
     if($routeParams.destaqueId){
         console.log($routeParams.destaqueId);
         
-        
         $http.get('/destaques' + $routeParams.destaqueId)
 		.success(function(destaque) {
 			$scope.destaque = destaque;
@@ -26,9 +25,7 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
 			console.log(erro);
 			$scope.mensagem = 'Destaque alterado com sucesso';
 		});
-	}
-
-    
+	}    
 
     $scope.submeter = function() {
         

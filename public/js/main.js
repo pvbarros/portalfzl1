@@ -25,8 +25,8 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute',
 			controller: 'DestaquesController'
 		});
 
-		$routeProvider.when('/destaques/antigos', {
-			templateUrl: 'partials/destaques-antigos.html',
+		$routeProvider.when('/gerenciar/destaques', {
+			templateUrl: 'partials/crud-destaques.html',
 			controller: 'DestaquesController'
 		});
 
@@ -37,6 +37,11 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute',
 
 		$routeProvider.when('/noticias/edit/:noticiaId', {
 			templateUrl: 'partials/gerenciador-noticias.html',
+			controller: 'NoticiasController'
+		});
+
+		$routeProvider.when('/gerenciar/noticias', {
+			templateUrl: 'partials/crud-noticias.html',
 			controller: 'NoticiasController'
 		});
 

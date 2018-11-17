@@ -15,7 +15,6 @@ api.lista = function(req, res) {
     ];
 
     res.json(categorias)
-
 };
 
 module.exports = api;

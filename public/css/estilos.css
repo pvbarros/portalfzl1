@@ -223,18 +223,6 @@ footer address:last-child {
 /*----------------------*/
 
 
-/* -----TELA LOGIN----- */
-/*.content{
-	background: transparent;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80%; 
-}
-/*----------------------*/
-
-
 /* ------MENU CURSOS----- */
 .img-cursos{
 	width: 100%;
@@ -343,9 +331,14 @@ i.glyphicon-chevron-down{
 /*-------------------------------GERENCIADORES-------------------------------*/
 
 /* --GERENCIADOR PATTERN-- */
-.list-group{
+/*.list-group{
 	height: 300px;
     overflow-y: auto;
+}*/
+
+.img-gerenciador{
+	height: 200px;
+	width: 600px;
 }
 
 .pesquisar-animado.ng-leave-active {

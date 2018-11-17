@@ -18,10 +18,6 @@
             <p ng-show="mensagem.length" class="alert alert-info">
                 <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
             </p>
-
-            <a href="/noticias/new" class="btn btn-primary titulo-uppercase">
-                <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir notícia</strong>
-            </a>
             
             <div dir-paginate="noticia in noticias | itemsPerPage:5 | filter: filtro">
                 <h3 class="titulo-noticias titulo-capitalize">
@@ -41,14 +37,6 @@
                 <a class="btn btn-info" href="/noticia/post/{{noticia._id}}">Leia Mais 
                     <i class="fa fa-angle-right"></i>
                 </a>
-
-                <a href="noticias/edit/{{noticia._id}}" class="btn btn-warning titulo-uppercase">
-                    <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
-                </a>
-
-                <button class="btn btn-danger titulo-uppercase" ng-click="remover(noticia)">
-                    <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
-                </button>
                 <hr>
             </div>
 

@@ -1,0 +1,65 @@
+<section class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Destaques <small>Antigos</small></h2>
+            <hr>
+            <ol class="breadcrumb">
+                <li><a href="/">Página Inicial</a>
+                </li>
+                <li class="active">Gerenciar Destaques</li>
+            </ol>
+        </div>
+    </div>
+
+    <p ng-show="mensagem.length" class="alert alert-info">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> {{mensagem}}
+    </p>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+                    <span class="input-group-btn">
+                        <a href="/destaques/new" class="btn btn-primary titulo-uppercase">
+                            <i class="fa fa-plus" aria-hidden="true"></i> <strong>Incluir destaque</strong>
+                        </a>
+                    </span>
+                <input type="text" class="form-control" name="buscar-noticias" placeholder="Insira a palavra-chave do destaque" ng-model="filtro" ng-model-options="{debounce: 500}">     
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA DESTAQUES ANTIGOS -->
+    <div class="row">
+        <div class="col-md-8">           
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action flex-column align-items-start" dir-paginate="destaque in destaques | itemsPerPage:5 | filter: filtro">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="titulo-capitalize">
+                            <h4 class="mb-1">{{destaque.titulo}}</h4>
+                            <h5 class="mb-1">{{destaque.subtitulo}}</h5>
+                        </div>
+                        <small>
+                            <i class="fa fa-clock-o"></i> Postado em {{destaque.data | date:"dd/MM/yyyy 'às' HH:mm" }}
+                        </small>
+                    </div>
+                    <img class="img-responsive img-hover img-rounded img-gerenciador" src="{{destaque.url}}" alt="{{destaque.titulo}}">
+                    <br/>
+                    <p class="mb-1">
+                        <a href="/destaques/edit/{{destaque._id}}" class="btn btn-warning  titulo-uppercase">
+                            <i class="fa fa-pencil" aria-hidden="true"></i><strong> Editar</strong>
+                        </a>
+    
+                        <button class="btn btn-danger titulo-uppercase" ng-click="remover(destaque)">
+                            <i class="fa fa-trash" aria-hidden="true"></i><strong> Excluir</strong>
+                        </button>
+                    </p>                  
+                </div>
+
+                <!-- ANTERIOR/PROXIMA PÁGINA -->
+                <div class="pager">
+                    <dir-pagination-controls max-size="5" direction-links="true"><dir-pagination-controls>
+                </div>             
+            </div>
+        </div>
+    </div>     
+</section>
