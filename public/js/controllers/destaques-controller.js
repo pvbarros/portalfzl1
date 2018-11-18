@@ -64,6 +64,7 @@ angular.module('alurapic').controller('DestaquesController', function($scope, $h
                     }
                 })
                 .success(function(){
+                    $scope.destaque = {};
                     $scope.mensagem = 'Destaque incluído com suceso';
                 })
                 .error(function(erro) {

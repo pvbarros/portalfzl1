@@ -32,7 +32,6 @@
             <script src="js/controllers/categorias-controller.js"></script>
             <script src="js/controllers/login-controller.js"></script>
 		<script src="js/directives/minhas-diretivas.js"></script>      
-            <script src="js/services/meus-servicos.js"></script>
 
             <!-- EDITOR DE TEXTO (trixEditor) -->
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.css">
@@ -68,10 +67,48 @@
                         </ul>
                   </div>
 
-                  <div class="login"> 
-                        <button type="button" class="btn btn-light">
-                              <i class="fa fa-user fa-lg"></i> Login
+                  <div class="login" ng-controller="LoginController"> 
+
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#confirm">
+                              <i class="fa fa-user fa-lg"></i><strong> Login</strong>
                         </button>
+                        
+                        <div class="modal fade" id="confirm" role="dialog">
+                              <div class="modal-dialog modal-md">
+                        
+                              <div class="modal-content">
+                                    <div class="modal-body">
+                                          <div class="panel-heading title-left">
+                                                <h3 class="panel-title titulo-uppercase">
+                                                      <strong>Fazer login</strong>
+                                                </h3>
+                                          </div>
+                                          <form ng-submit="autenticar()">
+                                                <div class="form-group">
+                                                      <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                  <i class="fa fa-user-o fa-lg"></i>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="Usuário" tabindex="1" ng-model="usuario.login">
+                                                      </div>
+                                                </div>
+                                                <div class="form-group">
+                                                      <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                  <i class="fa fa-lock fa-lg"></i>
+                                                            </div>
+                                                            <input type="password" class="form-control" name="login-senha" placeholder="Senha" tabindex="2" ng-model="usuario.senha">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                                <button class="btn btn-primary" type="submit" tabindex="3">Entrar</a>
+                                                <button type="button" data-dismiss="modal" class="btn btn-default" tabindex="4">Cancelar</button>
+                                          </div>
+                                    </form>
+                              </div>
+                              </div>
+                        </div>
                   </div>
             </section>
 

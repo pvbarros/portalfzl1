@@ -55,8 +55,8 @@
       <select name="categoria" class="form-control" 
       required 
       ng-controller="CategoriasController" 
-      ng-model="noticias.categoria" 
-      ng-options="categoria._id as (categoria.nome | uppercase) for categoria in categorias | uppercase">
+      ng-model="noticia.categoria" 
+      ng-options="categoria._id as (categoria.nome | uppercase) for categoria in categorias">
         <option value="">Selecione a categoria da notícia</option>
       </select>
 

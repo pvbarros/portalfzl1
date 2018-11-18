@@ -7,4 +7,5 @@ angular.module('alurapic').controller('CategoriasController', function($scope, $
 	.error(function(erro) {
 		console.log(erro);
 	});
+
 });

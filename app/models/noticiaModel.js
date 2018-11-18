@@ -19,7 +19,8 @@ var schema = new mongoose.Schema({
 		required: true
 	},
 	categoria: {
-		type: String
+		type: Number,
+		required: true
 	},
 
 },

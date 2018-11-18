@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('LoginController', function($scope, $http, $location) {
+angular.module('alurapic').controller('LoginController', function($scope, $http, $location, $ngBootbox) {
 
     $scope.usuario = {};
     $scope.mensagem = '';
@@ -13,6 +13,17 @@ angular.module('alurapic').controller('LoginController', function($scope, $http,
         }, function(erro) {
             $scope.usuario = {};
             $scope.mensagem = 'Login/Senha incorretos';
+        });
+    };
+
+    $scope.login = function (){
+
+        $ngBootbox.prompt('Digite um texto')
+        .then(function(){
+
+        },
+        function(){
+
         });
     };
 });
