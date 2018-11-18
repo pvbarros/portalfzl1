@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('LoginController', function($scope, $http, $location, $ngBootbox) {
+angular.module('portalfzl').controller('LoginController', function($scope, $http, $location, $ngBootbox) {
 
     $scope.usuario = {};
     $scope.mensagem = '';

@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('DestaquesController', function($scope, $http, $routeParams, $ngBootbox) {
+angular.module('portalfzl').controller('DestaquesController', function($scope, $http, $routeParams, $ngBootbox) {
 
     $scope.destaque = {};
     $scope.mensagem = '';

@@ -1,4 +1,4 @@
-angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 
+angular.module('portalfzl', ['minhasDiretivas','ngAnimate', 'ngRoute', 
 	'trixDemo', 'angularUtils.directives.dirPagination', 'summernote', 
 		'ngBootbox'])
 	.config(function($routeProvider, $locationProvider) {

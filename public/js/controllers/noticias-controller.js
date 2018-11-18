@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('NoticiasController', function($scope, $http, $routeParams, $ngBootbox) {
+angular.module('portalfzl').controller('NoticiasController', function($scope, $http, $routeParams, $ngBootbox) {
 	
 	$scope.noticias = [];
     $scope.noticia = {};

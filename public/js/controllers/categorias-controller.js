@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('CategoriasController', function($scope, $http) {
+angular.module('portalfzl').controller('CategoriasController', function($scope, $http) {
 
 	$http.get('/categorias')
 		.success(function(categorias) {
